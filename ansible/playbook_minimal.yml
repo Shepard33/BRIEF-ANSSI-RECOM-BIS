@@ -1,0 +1,55 @@
+---
+- name: Run ANSSI Recom role
+  hosts: all
+  become: true
+  roles:
+    - ANSSI-RECOM
+  vars:
+    var_authselect_profile: !!str minimal
+    var_password_pam_unix_remember: !!str 2
+    var_accounts_passwords_pam_faillock_deny: !!str 3
+    var_accounts_passwords_pam_faillock_fail_interval: !!str 900
+    var_accounts_passwords_pam_faillock_unlock_time: !!str 900
+    var_password_pam_dcredit: !!str -1
+    var_password_pam_lcredit: !!str -1
+    var_password_pam_minlen: !!str 18
+    var_password_pam_ocredit: !!str -1
+    var_password_pam_ucredit: !!str -1
+    var_accounts_maximum_age_login_defs: !!str 90
+    var_accounts_password_minlen_login_defs: !!str 18
+    var_password_pam_unix_rounds: !!str 65536
+
+  # tasks:
+  # - name: Apply all YUM updates
+  #   ansible.builtin.yum:
+  #     name: '*'
+  #     state: latest
+  #   become: true
+
+  # - name: Install scap-security-guide
+  #   ansible.builtin.yum:
+  #     name: scap-security-guide
+  #     state: present
+  #   become: true
+
+  # - name: Execute anssi-recom role
+  #   include_role:
+  #     name: anssi-recom
+
+  # - name: Generate OpenSCAP report
+  #   ansible.builtin.shell:
+  #     cmd: >
+  #       oscap xccdf eval
+  #       --profile xccdf_org.ssgproject.content_profile_anssi_bp28_minimal
+  #       --results /tmp/rapport.xml
+  #       --report /tmp/rapportminimal.html
+  #       /usr/share/xml/scap/ssg/content/ssg-rhel8-ds.xml
+  #     args:
+  #       executable: /bin/bash
+  #     become: true
+  #     ignore_errors: yes
+  #   register: oscap_report
+
+  # - name: Check OpenSCAP report generation status
+  #   ansible.builtin.debug:
+  #     var: oscap_report

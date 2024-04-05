@@ -1,0 +1,6 @@
+/Users/Arnaud/Documents/ANSSI-RECOM/terraform/backend/.terraform
+/Users/Arnaud/Documents/ANSSI-RECOM/terraform/backend/.terraform.lock.hcl
+/Users/Arnaud/Documents/ANSSI-RECOM/terraform/backend/terraform.tfstate
+/Users/Arnaud/Documents/ANSSI-RECOM/terraform/backend/terraform.tfstate.backup
+*.terraform.*
+.terraform

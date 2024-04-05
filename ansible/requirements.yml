@@ -1,0 +1,6 @@
+---
+roles:
+  - name: ANSSI-RECOM
+    src: https://github.com/Shepard33/ANSSI-RECOM.git
+    version: main
+    scm: git
